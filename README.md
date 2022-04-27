@@ -2,7 +2,7 @@
 
 ## 概要
 - NativeAOTとはCやGo、Rustなどと同様にネイティブのdllやexeをC#のソースから作る技術のこと
-- .NET 7 Preview Preview 2 で実験的なプロジェクトからメインラインに移行した
+- .NET 7 Preview 2 で実験的なプロジェクトからメインラインに移行した
 - 本リポジトリでは、以下のサンプルを作成している
   1. NativeAOTを使ってC#からネイティブのdllを作成
   2. C#のDLLImportで作成したdllの関数を呼び出し
