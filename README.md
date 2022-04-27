@@ -40,7 +40,7 @@ dotnet publish -r win-x64 -c Release
 ```
 dotnet publish /p:NativeLib=Shared /p:SelfContained=true -r win-x64 -c Release
 ```
-5.クラスライブラリで公開する関数の書き方は以下
+5.クラスライブラリで公開する関数の書き方
 ```cs
 using System.Runtime.InteropServices;
 
