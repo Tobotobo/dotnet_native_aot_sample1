@@ -8,6 +8,12 @@
   2. C#のDLLImportで作成したdllの関数を呼び出し
   3. GoのLoadDllで作成したdllの関数を呼び出し
 
+## ちょっと残念なこと
+- x64のみx86には非対応  
+(32bit版ExcelのVBAから呼び出したかった…残念) 
+- WinForms、WPFには非対応  
+(試しにILCompilerを追加してビルドしてみたが、エラーが出るわけでもなくただ無視されて普通のC#のexeが出来た)
+
 ## 実行手順
 
 1. dotnet_dll の build.md に従いdllを作成  
