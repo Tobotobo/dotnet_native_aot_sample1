@@ -10,6 +10,53 @@
 
 ## 実行手順
 
+1. dotnet_dll の build.md に従いdllを作成  
+   ※bin/Release/net7.0/win-x64/native に作成される
+2. dotnet_console の bin/Debug/net7.0 に1.のdllをコピーし ```dotnet run``` する  
+   ※3と出力されたら成功
+3. go_console の直下に1.のdllをコピーし ```go run main.go``` する  
+   ※3と出力されたら成功
+
+## 対象のプロジェクトでNativeAOTを有効にする手順
+※ほとんどブログの内容ままです。  
+1. nuget.config ファイルを作成
+```
+dotnet new nugetconfig
+```
+2. add key の部分に以下を追加 ※元々あるnugetのものと2行になる
+```xml
+<add key="dotnet7" value="https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet7/nuget/v3/index.json" />
+```
+3. ILCompilerを追加
+```
+dotnet add package Microsoft.DotNet.ILCompiler -v 7.0.0-*
+```
+4. ビルド  
+コンソールアプリの場合
+```
+dotnet publish -r win-x64 -c Release
+```
+クラスライブラリの場合
+```
+dotnet publish /p:NativeLib=Shared /p:SelfContained=true -r win-x64 -c Release
+```
+5.クラスライブラリで公開する関数の書き方は以下
+```cs
+using System.Runtime.InteropServices;
+
+namespace dotnet_dll;
+
+public class Class1
+{
+    [UnmanagedCallersOnly(EntryPoint = "add")]
+    public static int Add(int a, int b)
+    {
+        return a + b;
+    }
+}
+```
+※文字列を返す方法はまだ調べてない。
+
 ## 環境
 ```
 >ver
