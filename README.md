@@ -73,7 +73,7 @@ go version go1.17.2 windows/amd64
 Announcing .NET 7 Preview 3  
 https://devblogs.microsoft.com/dotnet/announcing-dotnet-7-preview-3/
 
-Announcing .NET 7 Preview 2 – The New, ‘New’ Experience
+Announcing .NET 7 Preview 2 – The New, ‘New’ Experience  
 https://devblogs.microsoft.com/dotnet/announcing-dotnet-7-preview-2/
 
 Compiling with Native AOT  
